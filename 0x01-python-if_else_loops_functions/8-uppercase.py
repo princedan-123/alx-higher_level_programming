@@ -5,8 +5,8 @@ def uppercase(str):
     while i < strlen:
         char = ord(str[i])
         if char < 97 or char > 122:
-            print("{}".format(chr(char)), end="" if i < strlen -1 else "\n")
+            print("{}".format(chr(char)), end="" if i < strlen - 1 else "\n")
         elif char >= 97 and char <= 122:
             char = char - 32
-            print("{}".format(chr(char)), end="" if i < strlen -1 else "\n")
+            print("{}".format(chr(char)), end="" if i < strlen - 1 else "\n")
         i += 1
