@@ -7,4 +7,4 @@ if __name__ == "__main__":
     for i in range(count):
         if "__" in content:
             continue
-        print(content)
+        print(content[i])
