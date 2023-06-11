@@ -6,9 +6,10 @@ a string and its first character
 
 
 def multiple_returns(sentence):
-    if sentence = "":
+    if sentence == "":
         return None
-    count = len(sentence)
-    char = sentence[0]
-    tup = (count, char)
-    return tup
+    else:
+        count = len(sentence)
+        char = sentence[0]
+        tup = (count, char)
+        return tup
