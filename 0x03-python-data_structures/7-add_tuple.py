@@ -13,7 +13,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
         second = [0, 0]
     elif count2 == 1:
         second.append(0)
-    a = first[0] +  second[0]
+    a = first[0] + second[0]
     b = first[1] + second[1]
     result = (a, b)
     return result
