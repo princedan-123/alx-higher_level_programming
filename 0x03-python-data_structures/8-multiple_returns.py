@@ -7,7 +7,7 @@ a string and its first character
 
 def multiple_returns(sentence):
     if sentence == "":
-        return None
+        return (0, None)
     else:
         count = len(sentence)
         char = sentence[0]
