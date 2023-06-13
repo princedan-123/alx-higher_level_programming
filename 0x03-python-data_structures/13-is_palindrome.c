@@ -10,11 +10,16 @@ int is_palindrome(listint_t **head)
 	listint_t *tmp = *head, *tmp1 = *head;
 	int count = 0, i = 0, j = 0, check = 0, n = 0, *list = NULL;
 
+	if (tmp == NULL)
+		return (1);
+
 	while (tmp != NULL)
 	{
 		tmp = tmp->next;
 		count++;
 	}
+	if (count == 1)
+		return (1);
 	n = count - 1;
 	list = malloc(count * sizeof(int));
 	while (tmp1 != NULL && i < count)
