@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 # Write a function that adds 2 tuples.
 def add_tuple(tuple_a=(), tuple_b=()):
+    count1 = len(tuple_a)
+    count2 = len(tuple_b)
     first = list(tuple_a)
     second = list(tuple_b)
-    count1 = len(first)
-    count2 = len(second)
     if count1 == 0:
         first[0, 0]
     elif count1 == 1:
