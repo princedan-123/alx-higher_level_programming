@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Create a function that converts a Roman numeral to an integer.
 def roman_to_int(roman_string):
-    if roman_string is None:
+    if isinstance(roman_string, str) or roman_string is None:
         return 0
     else:
         count = len(roman_string)  # lenght of the input string
