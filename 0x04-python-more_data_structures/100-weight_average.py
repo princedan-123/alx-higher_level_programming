@@ -1,4 +1,4 @@
-#!/usr.bin/python3
+#!/usr/bin/python3
 # function that returns the weighted average
 # of all integers tuple (<score>, <weight>)
 def weight_average(my_list=[]):
