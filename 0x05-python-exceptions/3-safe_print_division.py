@@ -2,10 +2,11 @@
 # Write a function that divides 2 integers and prints the result.
 def safe_print_division(a, b):
     try:
-        answer = None
         answer = a / b
-        return answer
     except ZeroDivisionError:
-        return None
+        answer = None
+    except Exception:
+        answer = None
     finally:
         print("inside result: {}".format(answer))
+        return answer
