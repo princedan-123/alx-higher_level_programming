@@ -30,8 +30,6 @@ class Rectangle:
             return ""
         result = ""
         for i in range(self.height):
-            if isinstance(self.print_symbol, (list, tuple)):
-                result += "".join(str(i) for i in self.print_symbol) * self.width + "\n"
             result += str(self.print_symbol) * self.width + "\n"
         return result
 
