@@ -31,7 +31,7 @@ class Rectangle:
         result = ""
         for i in range(self.height):
             result += str(self.print_symbol) * self.width + "\n"
-        return result
+        return result.rstrip()
 
     def __repr__(self):
         return f"Rectangle({self.width}, {self.height})"
