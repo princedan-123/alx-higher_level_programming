@@ -3,6 +3,7 @@
 and methods of an object
 """
 
+
 def lookup(obj):
     """ this function returns the attribute of an object
     arguments:obj(object)
