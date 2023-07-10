@@ -14,3 +14,8 @@ TypeError: width must be an integer
 Traceback (most recent call last):
 ...
 ValueError: width must be greater than 0
+
+>>> obj.integer_validator("width", True)
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
