@@ -12,8 +12,10 @@ class Rectangle(Rectangle):
     size  must be positive integers, validated by integer_validator
     """
     def __init__(self, size):
+        """instantiates an object"""
         self.integer_validator("size", size)
         self.__size = width
 
     def area(self):
+        """evaluates the area of the square object"""
         return self__size ** 2
