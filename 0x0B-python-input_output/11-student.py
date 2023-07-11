@@ -29,7 +29,7 @@ class Student:
 
     def reload_from_json(self, json):
         if len(json) != 0:
-            for i in json.keys:
+            for i in json.keys():
                 if i in self.__dict__:
                     self.__dict__[i] = json[i]
         return self.__dict__
