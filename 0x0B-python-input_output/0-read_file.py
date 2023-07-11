@@ -7,6 +7,6 @@ def read_file(filename=""):
         Arguments
         filename:(string) the name of the file or its relative path
     """
-    with open(filename, "r") as f:
+    with open(filename, "r", encoding = "utf-8") as f:
         content = f.read()
         print(content)
