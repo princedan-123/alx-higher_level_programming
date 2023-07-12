@@ -13,12 +13,12 @@ def append_after(filename="", search_string="", new_string=""):
     lenght = len(search_string)
     with open(filename, "r+") as f:
         content = f.readlines()
-        f.truncate()
+        f.truncate(0)
         f.close
+        f = open(filename, "a")
         for line in content:
-            open(filename, "a")
             if search_string in line:
                 f.write(line)
-                f.write(new_string + "\n")
+                f.write(new_string)
             else:
                 f.write(line)
