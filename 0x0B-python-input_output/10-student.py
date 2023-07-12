@@ -18,6 +18,7 @@ class Student:
     def to_json(self, lis=[]):
         if isinstance(lis, list):
             if len(lis) == 0:
+                self.__dict__.clear()
                 return self.__dict__
             dic = self.__dict__
             new = {}
