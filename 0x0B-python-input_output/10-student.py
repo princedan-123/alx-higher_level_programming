@@ -15,8 +15,10 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, lis=[]):
+    def to_json(self, lis=[2]):
         if isinstance(lis, list):
+            if lis[0] == 2:
+                return self.__dict__
             if len(lis) == 0:
                 self.__dict__.clear()
                 return self.__dict__
