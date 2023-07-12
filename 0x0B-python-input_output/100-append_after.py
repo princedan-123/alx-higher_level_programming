@@ -11,11 +11,11 @@ def append_after(filename="", search_string="", new_string=""):
             new_string: the new string to be appended
     """
     lenght = len(search_string)
-    with open(filename, "a+") as f:
-        while f:
-            content = f.readline()
-            if content == "":
-                break
-            for i in content:
-                if i == search_string:
-                    f.write(new_string)
+    with open(filename, "r+") as f:
+        content = f.readlines()
+        for line in content:
+            if search_string in line:
+                f.write(line)
+                f.write(new_string + "\n")
+            if line not in content:
+                f.write(line)
