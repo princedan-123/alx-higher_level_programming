@@ -13,8 +13,9 @@ def append_after(filename="", search_string="", new_string=""):
     lenght = len(search_string)
     with open(filename, "a+") as f:
         while f:
-            content = f.read(lenght)
+            content = f.readline()
             if content == "":
                 break
-            elif content == search_string:
-                f.write(new_string)
+            for i in content:
+                if i == search_string:
+                    f.write(new_string)
