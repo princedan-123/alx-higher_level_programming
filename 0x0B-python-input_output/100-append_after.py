@@ -17,5 +17,5 @@ def append_after(filename="", search_string="", new_string=""):
             if search_string in line:
                 f.write(line)
                 f.write(new_string + "\n")
-            if line not in content:
+            if search_string not in line:
                 f.write(line)
