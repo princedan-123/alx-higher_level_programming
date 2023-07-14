@@ -114,35 +114,64 @@ class Rectangle(Base):
             for i in range(self.height):
                 print(space + breadth)
 
-    def update(self, *args):
-        list_length = len(args)
-        if list_length == 0:
-            raise IndexError("argument list is empty")
-        self.id = args[0]
-        i = 1
-        while i < list_length:
-            if i == 1:
-                if not isinstance(args[1], int):
-                    raise TypeError("width must be an integer")
-                if args[1] <= 0:
-                    raise ValueError("width must be > 0")
-                self.width =  args[1]
-            if i == 2:
-                if not isinstance(args[2], int):
-                    raise TypeError("height must be an integer")
-                if args[2] <= 0:
-                    raise ValueError("height must be > 0")
-                self.height = args[2]
-            if i == 3:
-                if not isinstance(args[3], int):
-                    raise TypeError("x must be an integer")
-                if args[3] < 0:
-                    raise ValueError("x must be >= 0")
-                self.x = args[3]
-            if i == 4:
-                if not isinstance(args[4], int):
-                    raise TypeError("y must be an integer")
-                if args[4] < 0:
-                    raise ValueError("y must be >= 0")
-                self.y = args[4]
-            i += 1
+    def update(self, *args, **kwargs):
+        if args and len(args) != 0:
+            list_length = len(args)
+            self.id = args[0]
+            i = 1
+            while i < list_length:
+                if i == 1:
+                    if not isinstance(args[1], int):
+                        raise TypeError("width must be an integer")
+                    if args[1] <= 0:
+                        raise ValueError("width must be > 0")
+                    self.__width =  args[1]
+                if i == 2:
+                    if not isinstance(args[2], int):
+                        raise TypeError("height must be an integer")
+                    if args[2] <= 0:
+                        raise ValueError("height must be > 0")
+                    self.__height = args[2]
+                if i == 3:
+                    if not isinstance(args[3], int):
+                        raise TypeError("x must be an integer")
+                    if args[3] < 0:
+                        raise ValueError("x must be >= 0")
+                    self.__x = args[3]
+                if i == 4:
+                    if not isinstance(args[4], int):
+                        raise TypeError("y must be an integer")
+                    if args[4] < 0:
+                        raise ValueError("y must be >= 0")
+                    self.__y = args[4]
+                i += 1
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if not isinstance(value, int):
+                        raise TypeError("id is not an integer")
+                    self.id = value
+                if key == "width":
+                    if not isinstance(value, int):
+                        raise TypeError("width must be an integer")
+                    if value <= 0:
+                        raise ValueError("width must be > 0")
+                    self.__width = value
+                if key == "height":
+                    if not isinstance(value, int):
+                        raise TypeError("height must be an integer")
+                    if value <= 0:
+                        raise ValueError("height must be > 0")
+                    self.__height = value
+                if key == "x":
+                    if not isinstance(value, int):
+                        raise TypeError("x must be an integer")
+                    if value < 0:
+                        raise ValueError("x must be >= 0")
+                    self.__x = value
+                if key == "y":
+                    if not isinstance(value, int):
+                        raise TypeError("y must be an integer")
+                    if value < 0:
+                        raise ValueError("y must be >= 0")
+                    self.__y = value
