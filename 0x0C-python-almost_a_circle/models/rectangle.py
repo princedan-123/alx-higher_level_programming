@@ -13,8 +13,12 @@ class Rectangle(Base):
                 the rectangle
             width : private instance attribute. It represents the width of
                 rectangle
-            x: a private instance attribute
-            y: a private instance attribute
+            x: a private instance attribute for horizontal positioning of the
+                square
+            y: a private instance attribute for vertical positioning
+            area: a method that calculates the area of the rectangle
+            display: gives a visual display of the rectangle using #
+            update: a variadic method that updates the instance attributes
         constructor: initialises an instance of the Rectangle class
     """
     @property
@@ -49,8 +53,8 @@ class Rectangle(Base):
     def x(self, value):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
-        if value <= 0:
-            raise ValueError("x must be > 0")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -61,8 +65,8 @@ class Rectangle(Base):
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if value <= 0:
-            raise ValueError("y must be > 0")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -73,7 +77,7 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         else:
             self.__width = width
-        if not isinstance(height, (int, float)):
+        if not isinstance(height, int):
             raise TypeError("height must be an integer")
         if height <= 0:
             raise ValueError("height must be > 0")
@@ -81,13 +85,64 @@ class Rectangle(Base):
             self.__height = height
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
-        if x <= 0:
-            raise ValueError("x must be > 0")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         else:
             self.__x = x
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
-        if y <= 0:
-            raise ValueError("y must be > 0")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         else:
             self.__y = y
+
+    def __str__(self):
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+
+    def area(self):
+        return self.width * self.height
+
+    def display(self):
+        if self.x == 0 and self.y == 0:
+            for i in range(self.height):
+                print("#" * self.width)
+        elif self.x > 0 or self.y > 0:
+            space = " " * self.x
+            breadth = "#" * self.width
+            for i in range(self.y):
+                print()
+            for i in range(self.height):
+                print(space + breadth)
+
+    def update(self, *args):
+        list_length = len(args)
+        if list_length == 0:
+            raise IndexError("argument list is empty")
+        self.id = args[0]
+        i = 1
+        while i < list_length:
+            if i == 1:
+                if not isinstance(args[1], int):
+                    raise TypeError("width must be an integer")
+                if args[1] <= 0:
+                    raise ValueError("width must be > 0")
+                self.width =  args[1]
+            if i == 2:
+                if not isinstance(args[2], int):
+                    raise TypeError("height must be an integer")
+                if args[2] <= 0:
+                    raise ValueError("height must be > 0")
+                self.height = args[2]
+            if i == 3:
+                if not isinstance(args[3], int):
+                    raise TypeError("x must be an integer")
+                if args[3] < 0:
+                    raise ValueError("x must be >= 0")
+                self.x = args[3]
+            if i == 4:
+                if not isinstance(args[4], int):
+                    raise TypeError("y must be an integer")
+                if args[4] < 0:
+                    raise ValueError("y must be >= 0")
+                self.y = args[4]
+            i += 1
