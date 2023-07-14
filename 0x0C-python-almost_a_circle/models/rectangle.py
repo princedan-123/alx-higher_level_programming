@@ -23,10 +23,12 @@ class Rectangle(Base):
     """
     @property
     def width(self):
+        """it retrieves width attribute"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """sets width attribute"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -35,10 +37,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """returns height"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """sets height attribute"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -47,10 +51,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """returns x cordinate"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """sets x attribute"""
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -59,10 +65,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """ returns y cordinate attribute"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """sets y attribute"""
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -70,6 +78,7 @@ class Rectangle(Base):
         self.__y = value
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """constructor function"""
         super().__init__(id)
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
@@ -97,12 +106,15 @@ class Rectangle(Base):
             self.__y = y
 
     def __str__(self):
+        """returns string representation of the instance"""
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def area(self):
+        """computes the area of the rectangle class"""
         return self.width * self.height
 
     def display(self):
+        """displays diagram of the rectangle class using # character"""
         if self.x == 0 and self.y == 0:
             for i in range(self.height):
                 print("#" * self.width)
@@ -115,6 +127,7 @@ class Rectangle(Base):
                 print(space + breadth)
 
     def update(self, *args, **kwargs):
+        """updates the attributes of the class"""
         if args and len(args) != 0:
             list_length = len(args)
             self.id = args[0]
@@ -175,3 +188,8 @@ class Rectangle(Base):
                     if value < 0:
                         raise ValueError("y must be >= 0")
                     self.__y = value
+
+    def to_dictionary(self):
+        """returns the dictionary representation of the instance of the class"""
+        return {"id":self.id, "width":self.__width, "height":self.__height,
+                "x":self.__x, "y":self.__y}
