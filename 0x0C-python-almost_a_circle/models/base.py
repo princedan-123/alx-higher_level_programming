@@ -57,3 +57,19 @@ class Base:
         if class_name == "Square":
             obj = cls(id=0, size=0, x=0, y=0)
         return obj.update(**dictionary)
+
+    @classmethod
+    def load_from_file(cls):
+        """creates a list of objects from json strings stored in a file"""
+        class_name= cls.__name__
+        extension = ".json"
+        file_name = class_name + extension
+        try:
+            with open(filename, "r") as f:
+                content = f.read()
+                dic = cls.from_json_string(content)
+                new_objs = [cls.create(**i) for i in dic]
+        except FileNotFoundError:
+            return []
+        except Exception:
+            return []
