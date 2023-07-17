@@ -10,6 +10,7 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """return a string representation of the instance"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
@@ -24,6 +25,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """updates the attributes of the instance"""
         if args and len(args) != 0:
             list_length = len(args)
             i = 1
