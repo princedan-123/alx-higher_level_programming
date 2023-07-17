@@ -3,6 +3,7 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     def test_rectangle_instatiation(self):
         """testing if the init method, getters and setters works"""
@@ -25,6 +26,7 @@ class TestRectangle(unittest.TestCase):
             obj = Rectangle(1)
             obj = Rectangle(1, 3)
             obj = Rectangle(1, 2, 3)
+
     def test_for_int(self):
         obj = Rectangle(2, 3, 4, 5, 7)
         """testing if a none integer value is passed"""
@@ -42,23 +44,28 @@ class TestRectangle(unittest.TestCase):
             obj.x = 6.8
             obj.y = 6.7
             obj.width = [33.6]
-            obj.height = [5,6]
+            obj.height = [5, 6]
+
     def test_value(self):
         obj = Rectangle(2, 4, 5, 6, 7)
-        """testing if the right type of obj but with improper value is passed"""
+        """testing if the right type of obj but with improper value is
+            passed
+        """
         with self.assertRaises(ValueError):
             obj.width = -1
             obj.width = 0
             obj.height = -2
             obj.height = 0
             obj.x = -1
-            obj.y = -10 
+            obj.y = -10
+
     def test_area(self):
         """testing the area method"""
         obj = Rectangle(10, 10)
         self.assertEqual(obj.area(), 100)
         obj = Rectangle(10, 2, 3, 4, 5)
         self.assertEqual(obj.area(), 20)
+
     def test_update(self):
         """testing the update method"""
         obj = Rectangle(1, 2, 3, 4, 5)
@@ -87,6 +94,7 @@ class TestRectangle(unittest.TestCase):
             obj = Rectangle(-1, 2, 4, 6)
             obj = Rectangle(-2, 4, 6, 7)
             obj = Rectangle(1, 2, -1, -2)
+
     def test_2_update(self):
         """testing update method with keyword arguments"""
         obj = Rectangle(10, 2, 4, 5, 7)
@@ -112,10 +120,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(obj.width, 10)
         self.assertEqual(obj.height, 3)
         self.assertEqual(obj.x, 2)
+
     def test_3_update(self):
         """testing if the method raises an exception"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10,10,10,10,10)
+            r = Rectangle(10, 10, 10, 10, 10)
             r.update(width=True, height=1)
             r.update(width="2", height=4, x=5)
             r.update(width=4.5, height=9)
@@ -128,13 +137,20 @@ class TestRectangle(unittest.TestCase):
             r.update(y=False)
             r.update(x="6")
             r.update(y="7")
+
     def test_to_dictionary(self):
         """testing the to_dictionary method that returns a dictionary
             of the instance attribute
         """
-        r = Rectangle(10,10,10,10,10)
+        r = Rectangle(10, 10, 10, 10, 10)
         dic = r.to_dictionary()
-        self.assertEqual(dic, {"width":10, "height":10, "x":10, "y":10, "id":10})
+        self.assertEqual(dic, {
+            "width": 10, "height": 10,
+            "x": 10, "y": 10, "id": 10
+            })
         r.update(1, 3, 4)
         dic = r.to_dictionary()
-        self.assertEqual(dic, {"width":1, "height":3, "x":4, "y":10, "id":10})
+        self.assertEqual(dic, {
+            "width": 1, "height": 3,
+            "x": 4, "y": 10, "id": 10
+            })

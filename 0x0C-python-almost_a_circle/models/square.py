@@ -33,7 +33,7 @@ class Square(Rectangle):
                         raise TypeError("size must be an integer")
                     if args[0] <= 0:
                         raise ValueError("size must be > 0")
-                    self.size =  args[0]
+                    self.size = args[0]
                 if i == 2:
                     if not isinstance(args[1], int):
                         raise TypeError("x must be an integer")
@@ -73,6 +73,7 @@ class Square(Rectangle):
                     if value < 0:
                         raise ValueError("y must be >= 0")
                     self.y = value
+
     def to_dictionary(self):
         """returns the dictionary representation of the class instance"""
-        return {"id":self.id, "size":self.size, "x":self.x, "y":self.y}
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}

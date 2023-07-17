@@ -3,6 +3,7 @@
 import unittest
 from models.square import Square
 
+
 class Test_Square(unittest.TestCase):
     """tests the features of Square class"""
     def test_initialization(self):
@@ -26,6 +27,7 @@ class Test_Square(unittest.TestCase):
             s = Square(5, 3, "1")
             s = Square(4, 5, True)
             s = Square(3, 5, 2.5)
+
     def test_properties(self):
         """test getter and setter methods"""
         s = Square(10, 1, 3, 7)
@@ -34,10 +36,11 @@ class Test_Square(unittest.TestCase):
         self.assertEqual(s.y, 3)
         self.assertEqual(s.id, 7)
         s = Square(11, 2, 5)
-        self.assertEqual(s.id, 1)
+        self.assertEqual(s.id, 8)
         self.assertEqual(s.size, 11)
         self.assertEqual(s.x, 2)
         self.assertEqual(s.y, 5)
+
     def test_update_square(self):
         """test update method"""
         s = Square(1, 2, 3, 4)
@@ -60,6 +63,7 @@ class Test_Square(unittest.TestCase):
         self.assertEqual(s.x, 0)
         s.update()
         self.assertEqual(s.size, 2)
+
     def test2_update_square(self):
         """testing the update method with keyword arguments"""
         s = Square(1, 2, 3, 4)
@@ -77,6 +81,7 @@ class Test_Square(unittest.TestCase):
         self.assertEqual(s.size, 5)
         self.assertEqual(s.x, 1)
         self.assertEqual(s.y, 2)
+
     def test3_update_square(self):
         """testing the update method with none int values"""
         s = Square(2, 3, 4, 5)

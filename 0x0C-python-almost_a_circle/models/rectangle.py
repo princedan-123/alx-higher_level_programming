@@ -107,7 +107,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """returns string representation of the instance"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
+                + f"{self.width}/{self.height}")
 
     def area(self):
         """computes the area of the rectangle class"""
@@ -137,7 +138,7 @@ class Rectangle(Base):
                         raise TypeError("width must be an integer")
                     if args[0] <= 0:
                         raise ValueError("width must be > 0")
-                    self.__width =  args[0]
+                    self.__width = args[0]
                 if i == 2:
                     if not isinstance(args[1], int):
                         raise TypeError("height must be an integer")
@@ -191,6 +192,6 @@ class Rectangle(Base):
                     self.__y = value
 
     def to_dictionary(self):
-        """returns the dictionary representation of the instance of the class"""
-        return {"id":self.id, "width":self.__width, "height":self.__height,
-                "x":self.__x, "y":self.__y}
+        """returns the dictionary representation of the instance"""
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}

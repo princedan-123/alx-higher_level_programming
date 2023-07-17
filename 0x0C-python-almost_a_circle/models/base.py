@@ -61,7 +61,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """creates a list of objects from json strings stored in a file"""
-        class_name= cls.__name__
+        class_name = cls.__name__
         extension = ".json"
         file_name = class_name + extension
         try:
