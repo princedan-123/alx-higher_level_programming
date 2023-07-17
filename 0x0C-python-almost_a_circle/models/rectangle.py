@@ -128,7 +128,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """updates the attributes of the class"""
-        if args and len(args) != 0:
+        if args or len(args) != 0:
             list_length = len(args)
             self.id = args[0]
             i = 1
