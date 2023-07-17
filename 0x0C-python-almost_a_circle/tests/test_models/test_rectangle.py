@@ -112,3 +112,29 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(obj.width, 10)
         self.assertEqual(obj.height, 3)
         self.assertEqual(obj.x, 2)
+    def test_3_update(self):
+        """testing if the method raises an exception"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10,10,10,10,10)
+            r.update(width=True, height=1)
+            r.update(width="2", height=4, x=5)
+            r.update(width=4.5, height=9)
+            r.update(height=True)
+            r.update(height="60")
+            r.update(height=8.999)
+            r.update(x=8.8)
+            r.update(y=8.0)
+            r.update(x=True)
+            r.update(y=False)
+            r.update(x="6")
+            r.update(y="7")
+    def test_to_dictionary(self):
+        """testing the to_dictionary method that returns a dictionary
+            of the instance attribute
+        """
+        r = Rectangle(10,10,10,10,10)
+        dic = r.to_dictionary()
+        self.assertEqual(dic, {"width":10, "height":10, "x":10, "y":10, "id":10})
+        r.update(1, 3, 4)
+        dic = r.to_dictionary()
+        self.assertEqual(dic, {"width":1, "height":3, "x":4, "y":10, "id":10})

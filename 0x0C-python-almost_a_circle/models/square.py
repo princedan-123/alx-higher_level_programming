@@ -26,27 +26,28 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         if args and len(args) != 0:
             list_length = len(args)
-            self.id = args[0]
             i = 1
-            while i < list_length:
+            while i <= list_length:
                 if i == 1:
-                    if not isinstance(args[1], int):
+                    if not isinstance(args[0], int):
                         raise TypeError("size must be an integer")
-                    if args[1] <= 0:
+                    if args[0] <= 0:
                         raise ValueError("size must be > 0")
-                    self.size =  args[1]
+                    self.size =  args[0]
                 if i == 2:
-                    if not isinstance(args[2], int):
+                    if not isinstance(args[1], int):
                         raise TypeError("x must be an integer")
-                    if args[2] < 0:
+                    if args[1] < 0:
                         raise ValueError("x must be >= 0")
-                    self.x = args[2]
+                    self.x = args[1]
                 if i == 3:
-                    if not isinstance(args[3], int):
+                    if not isinstance(args[2], int):
                         raise TypeError("y must be an integer")
-                    if args[3] < 0:
+                    if args[2] < 0:
                         raise ValueError("y must be >= 0")
-                    self.y = args[3]
+                    self.y = args[2]
+                if i == 4:
+                    self.id = args[3]
                 i += 1
         elif kwargs:
             for key, value in kwargs.items():
