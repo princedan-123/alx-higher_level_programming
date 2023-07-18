@@ -131,34 +131,33 @@ class Rectangle(Base):
         """updates the attributes of the class"""
         if args and len(args) != 0:
             list_length = len(args)
+            self.id = args[0]
             i = 1
-            while i <= list_length:
+            while i < list_length:
                 if i == 1:
-                    if not isinstance(args[0], int):
-                        raise TypeError("width must be an integer")
-                    if args[0] <= 0:
-                        raise ValueError("width must be > 0")
-                    self.__width = args[0]
-                if i == 2:
                     if not isinstance(args[1], int):
-                        raise TypeError("height must be an integer")
+                        raise TypeError("width must be an integer")
                     if args[1] <= 0:
-                        raise ValueError("height must be > 0")
-                    self.__height = args[1]
-                if i == 3:
+                        raise ValueError("width must be > 0")
+                    self.__width = args[1]
+                if i == 2:
                     if not isinstance(args[2], int):
-                        raise TypeError("x must be an integer")
-                    if args[2] < 0:
-                        raise ValueError("x must be >= 0")
-                    self.__x = args[2]
-                if i == 4:
+                        raise TypeError("height must be an integer")
+                    if args[2] <= 0:
+                        raise ValueError("height must be > 0")
+                    self.__height = args[2]
+                if i == 3:
                     if not isinstance(args[3], int):
-                        raise TypeError("y must be an integer")
+                        raise TypeError("x must be an integer")
                     if args[3] < 0:
+                        raise ValueError("x must be >= 0")
+                    self.__x = args[3]
+                if i == 4:
+                    if not isinstance(args[4], int):
+                        raise TypeError("y must be an integer")
+                    if args[4] < 0:
                         raise ValueError("y must be >= 0")
-                    self.__y = args[3]
-                if i == 5:
-                    self.id = args[4]
+                    self.__y = args[4]
                 i += 1
         elif kwargs:
             for key, value in kwargs.items():
