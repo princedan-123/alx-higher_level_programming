@@ -37,8 +37,11 @@ class TestRectangle(unittest.TestCase):
             """testing for none valid instantiation"""
             r1 = Rectangle()
             r2 = Rectangle(1)
-            r3 = Rectangle("1", 3, 6)
+            obj = Rectangle("1", 2)
+            r3 = Rectangle(1, "3", 6)
             r4 = Rectangle(1.5, 2, 3)
+            obj2 = Rectangle(1, 2, "3")
+            obj3 = Rectangle(1, 2, 3, "4")
         with self.assertRaises(ValueError):
             r5 = Rectangle(0, 0, 3)
             r6 = Rectangle(-1, 3, 5)
