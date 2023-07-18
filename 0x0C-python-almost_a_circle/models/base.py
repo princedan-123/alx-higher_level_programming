@@ -56,7 +56,8 @@ class Base:
             obj = cls(1, 2)
         if class_name == "Square":
             obj = cls(3)
-        return obj.update(**dictionary)
+        obj.update(**dictionary)
+        return obj
 
     @classmethod
     def load_from_file(cls):
