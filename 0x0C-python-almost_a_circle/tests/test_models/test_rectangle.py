@@ -25,8 +25,14 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(1, 3, 4)
         r3 = Rectangle(1, 3)
         self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 3)
+        self.assertEqual(r1.x, 4)
+        self.assertEqual(r1.y, 5)
+        self.assertEqual(r2.width, 1)
+        self.assertEqual(r2.x, 4)
         self.assertEqual(r2.height, 3)
-        self.assertEqual(r3.x, 0)
+        self.assertEqual(r3.width, 1)
+        self.assertEqual(r3.height, 3)
         with self.assertRaises(TypeError):
             """testing for none valid instantiation"""
             r1 = Rectangle()
