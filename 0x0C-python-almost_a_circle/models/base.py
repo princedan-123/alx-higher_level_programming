@@ -70,6 +70,7 @@ class Base:
                 content = f.read()
                 dic = cls.from_json_string(content)
                 new_objs = [cls.create(**i) for i in dic]
+                return new_objs
         except FileNotFoundError:
             return []
         except Exception:
