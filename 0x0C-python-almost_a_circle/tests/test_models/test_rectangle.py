@@ -21,15 +21,27 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(obj.height, 10)
         self.assertEqual(obj.x, 10)
         self.assertEqual(obj.y, 10)
+        r1 = Rectangle(2, 3, 4, 5)
+        r2 = Rectangle(1, 3, 4)
+        r3 = Rectangle(1, 3)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r2.height, 3)
+        self.assertEqual(r3.x, 0)
         with self.assertRaises(TypeError):
-            obj = Rectangle()
-            obj = Rectangle(1)
-            obj = Rectangle(1, 3)
-            obj = Rectangle(1, 2, 3)
+            """testing for none valid instantiation"""
+            r1 = Rectangle()
+            r2 = Rectangle(1)
+            r3 = Rectangle("1", 3, 6)
+            r4 = Rectangle(1.5, 2, 3)
+        with self.assertRaises(ValueError):
+            r5 = Rectangle(0, 0, 3)
+            r6 = Rectangle(-1, 3, 5)
+            r7 = Rectangle(2, 4, -1)
+            r8 = Rectangle(6, 7, 8, -2)
 
     def test_for_int(self):
         obj = Rectangle(2, 3, 4, 5, 7)
-        """testing if a none integer value is passed"""
+        """testing if a none integer value is set to the attribute"""
         with self.assertRaises(TypeError):
             obj.width = "2"
             obj.height = "5"
