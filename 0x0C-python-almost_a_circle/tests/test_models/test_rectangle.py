@@ -36,14 +36,21 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             """testing for none valid instantiation"""
             r1 = Rectangle()
+        with self.assertRaises(TypeError):
             r2 = Rectangle(1)
+        with self.assertRaises(TypeError):
             obj = Rectangle("1", 2)
+        with self.assertRaises(TypeError):
             r3 = Rectangle(1, "3", 6)
+        with self.assertRaises(TypeError):
             r4 = Rectangle(1.5, 2, 3)
+        with self.assertRaises(TypeError):
             obj2 = Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
             obj3 = Rectangle(1, 2, 3, "4")
         with self.assertRaises(ValueError):
             r5 = Rectangle(0, 0, 3)
+            obj = Rectangle(1, 0)
             r6 = Rectangle(-1, 3, 5)
             r7 = Rectangle(2, 4, -1)
             r8 = Rectangle(6, 7, 8, -2)
@@ -111,6 +118,7 @@ class TestRectangle(unittest.TestCase):
             obj = Rectangle(2.4, 6.8, 3.5, 4.5)
         with self.assertRaises(ValueError):
             obj = Rectangle(0, 1, 3)
+            obj = Rectangle(1, 0)
             obj = Rectangle(1, 0, 0, 0)
             obj = Rectangle(-1, 2, 4, 6)
             obj = Rectangle(-2, 4, 6, 7)
@@ -175,3 +183,8 @@ class TestRectangle(unittest.TestCase):
             "width": 1, "height": 3,
             "x": 4, "y": 10, "id": 10
             })
+
+    def test__str__(self):
+        """testing for __str__"""
+        r = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r.__str__(), "[Rectangle] (5) 3/4 - 1/2")
