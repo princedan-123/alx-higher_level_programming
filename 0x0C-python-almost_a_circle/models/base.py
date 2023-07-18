@@ -53,9 +53,9 @@ class Base:
     def create(cls, **dictionary):
         class_name = cls.__name__
         if class_name == "Rectangle":
-            obj = cls(id=0, width=1, height=1, x=0, y=0)
+            obj = cls(1, 2)
         if class_name == "Square":
-            obj = cls(id=0, size=0, x=0, y=0)
+            obj = cls(3)
         return obj.update(**dictionary)
 
     @classmethod
