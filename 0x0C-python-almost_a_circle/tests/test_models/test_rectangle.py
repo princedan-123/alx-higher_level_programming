@@ -214,3 +214,6 @@ class TestRectangle(unittest.TestCase):
         result = TestRectangle._display(width=5, height=3)
         obj = Rectangle(5, 3)
         self.assertEqual(obj.display(), result)
+        result = TestRectangle._display(width=5, height=3, x=2, y=2)
+        obj1 = Rectangle(5, 3, 2, 2)
+        self.assertEqual(obj1.display(), result)

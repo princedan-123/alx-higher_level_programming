@@ -13,20 +13,33 @@ class Test_Square(unittest.TestCase):
         self.assertEqual(s.x, 1)
         self.assertEqual(s.y, 3)
         self.assertEqual(s.id, 7)
+        s2 = Square(10, 2, 2)
+        s3 = Square(5, 3)
+        s4 = Square(4)
+        self.assertEqual(s2.size, 10)
+        self.assertEqual(s2.y, 2)
+        self.assertEqual(s2.x, 2)
+        self.assertEqual(s3.size, 5)
+        self.assertEqual(s3.x, 3)
+        self.assertEqual(s4.size, 4)
         with self.assertRaises(TypeError):
             s = Square()
-            s = Square(10)
-            s = Square(10, 1)
+        with self.assertRaises(TypeError):
+            s = Square("5")
+        with self.assertRaises(TypeError):
+            s = Square(5, "3")
+        with self. assertRaises(TypeError):
+            s = Square(6, 3, "5")
         with self.assertRaises(ValueError):
             s = Square(0, 1, 3, 7)
+        with self.assertRaises(ValueError):
             s = Square(-1, 2, 3, 7)
-            s = Square("1", 2, 4, 5)
-            s = Square(1, -1, -2, 0)
-            s = Square(2, "2", 4.5)
-            s = Square(7, True, 6)
-            s = Square(5, 3, "1")
-            s = Square(4, 5, True)
-            s = Square(3, 5, 2.5)
+        with self.assertRaises(ValueError):
+            s = Square(1, -2, 4, 5)
+        with self.assertRaises(ValueError):
+            s = Square(1, 1, -2, 4)
+        with self.assertRaises(ValueError):
+            s = Square(0, 4)
 
     def test_properties(self):
         """test getter and setter methods"""
