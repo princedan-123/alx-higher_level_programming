@@ -124,13 +124,12 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(obj.y, 10)
         self.assertEqual(obj.id, 10)
         obj.update(1, 2)
-        self.assertEqual(obj.width, 1)
-        self.assertEqual(obj.height, 2)
+        self.assertEqual(obj.width, 2)
         self.assertEqual(obj.x, 10)
         self.assertEqual(obj.y, 10)
         obj.update(1)
-        self.assertEqual(obj.width, 1)
-        self.assertEqual(obj.height, 2)
+        self.assertEqual(obj.id, 1)
+        self.assertEqual(obj.width, 2)
         with self.assertRaises(TypeError):
             obj = Rectangle(True, 2, 4, 5, 7)
             obj = Rectangle(1, True, 3, 4, 5)
@@ -200,9 +199,8 @@ class TestRectangle(unittest.TestCase):
         r.update(1, 3, 4)
         dic = r.to_dictionary()
         self.assertEqual(dic, {
-            "width": 1, "height": 3,
-            "x": 4, "y": 10, "id": 10
-            })
+            "id": 1, "width": 3,
+            "height": 4, "x": 10, "y": 10})
 
     def test__str__(self):
         """testing for __str__"""

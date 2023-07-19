@@ -17,3 +17,12 @@ class testBase(unittest.TestCase):
         self.assertEqual(base_obj.id, 4)
         base_obj = Base(None)
         self.assertEqual(base_obj.id, 4)
+
+    def test_to_json_string(self):
+        """testing to_json_string method"""
+        dic_list = [{"size": 10, "x": 2, "y": 4, "id": 3}]
+        j_string = Base.to_json_string(dic_list)
+        self.assertEqual(j_string, '[{"size": 10, "x": 2, "y": 4, "id": 3}]')
+        dic_list = []
+        j_string = Base.to_json_string(dic_list)
+        self.assertEqual(j_string, "[]")

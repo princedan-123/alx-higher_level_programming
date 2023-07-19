@@ -57,22 +57,21 @@ class Test_Square(unittest.TestCase):
         """test update method"""
         s = Square(1, 2, 3, 4)
         s.update(2, 4, 6, 8)
+        self.assertEqual(s.size, 4)
+        self.assertEqual(s.x, 6)
+        self.assertEqual(s.y, 8)
+        self.assertEqual(s.id, 2)
+        s.update(10, 2, 4,)
         self.assertEqual(s.size, 2)
         self.assertEqual(s.x, 4)
-        self.assertEqual(s.y, 6)
-        self.assertEqual(s.id, 8)
-        s.update(10, 2, 4,)
-        self.assertEqual(s.size, 10)
-        self.assertEqual(s.x, 2)
-        self.assertEqual(s.y, 4)
-        self.assertEqual(s.id, 8)
-        s.update(50, 0)
-        self.assertEqual(s.size, 50)
-        self.assertEqual(s.x, 0)
-        self.assertEqual(s.y, 4)
-        s.update(2)
+        self.assertEqual(s.id, 10)
+        s.update(50, 2)
         self.assertEqual(s.size, 2)
-        self.assertEqual(s.x, 0)
+        self.assertEqual(s.x, 4)
+        self.assertEqual(s.id, 50)
+        s.update(2)
+        self.assertEqual(s.id, 2)
+        self.assertEqual(s.x, 4)
         s.update()
         self.assertEqual(s.size, 2)
 
@@ -106,3 +105,14 @@ class Test_Square(unittest.TestCase):
             s.update(-2, 6)
             s.update(6, -1)
             s.update(4, 6, -8)
+
+    def test4_str_(self):
+        """testing for __str__ method"""
+        s = Square(5, 3, 3, 5)
+        self.assertEqual(s.__str__(), "[Square] (5) 3/3 - 5")
+
+    def test_to_dictionary(self):
+        """testing the to_dictionary method in Square class"""
+        s = Square(10, 2, 2, 3)
+        dic = {"id": 3, "size": 10, "x": 2, "y": 2}
+        self.assertEqual(s.to_dictionary(), dic)
