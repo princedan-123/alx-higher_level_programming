@@ -116,3 +116,18 @@ class Test_Square(unittest.TestCase):
         s = Square(10, 2, 2, 3)
         dic = {"id": 3, "size": 10, "x": 2, "y": 2}
         self.assertEqual(s.to_dictionary(), dic)
+
+    def test_create(self):
+        """testing create method"""
+        s = Square(2, 3, 4, 6)
+        dic = s.to_dictionary()
+        new_obj = s.create(**dic)
+        self.assertTrue(isinstance(new_obj, Square))
+        s1 = Square(2, 3, 4)
+        dic = s1.to_dictionary()
+        new_obj = s1.create(**dic)
+        self.assertIsInstance(new_obj, Square)
+        s2 = Square(2, 3)
+        dic = s2.to_dictionary()
+        new_obj = s2.create(**dic)
+        self.assertIsInstance(new_obj, Square)

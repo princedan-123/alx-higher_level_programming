@@ -215,3 +215,18 @@ class TestRectangle(unittest.TestCase):
         result = TestRectangle._display(width=5, height=3, x=2, y=2)
         obj1 = Rectangle(5, 3, 2, 2)
         self.assertEqual(obj1.display(), result)
+
+    def test_create(self):
+        """testing create method"""
+        r = Rectangle(10, 13, 5, 1, 2)
+        dic = r.to_dictionary()
+        new_obj = r.create(**dic)
+        self.assertIsInstance(new_obj, Rectangle)
+        r1 = Rectangle(2, 4, 5, 2)
+        dic = r1.to_dictionary()
+        new_obj = r1.create(**dic)
+        self.assertIsInstance(new_obj, Rectangle)
+        r3 = Rectangle(3, 5)
+        dic = r3.to_dictionary()
+        new = r3.create(**dic)
+        self.assertIsInstance(new, Rectangle)

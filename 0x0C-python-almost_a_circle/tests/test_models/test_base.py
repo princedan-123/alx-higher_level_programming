@@ -26,3 +26,6 @@ class testBase(unittest.TestCase):
         dic_list = []
         j_string = Base.to_json_string(dic_list)
         self.assertEqual(j_string, "[]")
+        dic_list = None
+        j_string = Base.to_json_string(dic_list)
+        self.assertEqual(j_string, "[]")
