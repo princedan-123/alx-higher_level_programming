@@ -2,4 +2,4 @@
 -- retrieves the data from second_table and display it in a particular order
 SELECT score, name
 FROM second_table
-ORDER score DESC;
+ORDER BY score DESC;
