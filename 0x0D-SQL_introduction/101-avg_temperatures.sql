@@ -1,5 +1,5 @@
 -- calculates the average temperature of a city
-SELECT city, AVG(values) as avg_temp
+SELECT city, AVG(values) AS avg_temp
 FROM temperatures
 GROUP BY city
-ORDER BY city DESC;
+ORDER BY avg_temp DESC;
