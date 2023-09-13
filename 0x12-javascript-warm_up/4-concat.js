@@ -8,10 +8,15 @@ const arg = process.argv;
 let i = 2;
 let output = '';
 let init = '';
+const undef = undefined;
 while (i < arg.length) {
   if (i === 2) {
     init += `${arg[i]}` + ' is';
     output += init;
+    if (arg.length === 3) {
+      output += ' ';
+      output += undef;
+    }
   } else {
     output += ' ';
     output += arg[i];
