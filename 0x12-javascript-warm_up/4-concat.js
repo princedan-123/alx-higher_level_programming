@@ -8,7 +8,7 @@ const arg = process.argv;
 let i = 2;
 let output = '';
 let init = '';
-while (i <= arg.length) {
+while (i < arg.length) {
   if (i === 2) {
     init += `${arg[i]}` + ' is';
     output += init;
