@@ -8,7 +8,7 @@ if __name__ == "__main__":
     arg = sys.argv
     username = arg[1]
     passwd = arg[2]
-    db = arg[3] # database name
+    db = arg[3]          # database name
     if len(arg) == 4:
         with connect(
                 host="localhost", user=username,
