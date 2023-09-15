@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-"""
-    a script that selects all the state in a table
-"""
+"""a script that selects all the state in a table"""
 import sys
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine
 from model_state import Base, State
 
 arg = sys.argv
@@ -20,7 +18,7 @@ if __name__ == '__main__':
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session_object = Session()
-        result = session_object.query(State).order_by(asc(State.id)).all()
+        result = session_object.query(State).order_by(State.id).all()
         for record in result:
             print('{}: {}'.format(record.id, record.name))
         session_object.close
