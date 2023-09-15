@@ -21,4 +21,4 @@ if __name__ == "__main__":
         result = session_object.query(State).order_by(State.id).all()
         for record in result:
             print("{}: {}".format(record.id, record.name))
-        session_object.close
+        session_object.close()
