@@ -10,7 +10,7 @@ if __name__ == "__main__":
     passwd = arg[2]
     db = arg[3]          # database name
     search = arg[4]
-    for name in arg:
+    for name in arg:    # input validation to check injection
         if ";" in name:
             validate = False
         else:
