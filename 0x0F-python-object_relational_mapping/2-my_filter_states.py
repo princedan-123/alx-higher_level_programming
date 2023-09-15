@@ -19,7 +19,7 @@ if __name__ == "__main__":
             cursor = mysql_db.cursor()
             cursor.execute(
                     """
-                    SELECT * FROM states WHERE name = '{}'
+                    SELECT * FROM states WHERE name = '{:s}'
                     ORDER BY id ASC
                     """.format(search)
                     )
