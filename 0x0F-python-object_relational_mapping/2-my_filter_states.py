@@ -18,10 +18,10 @@ if __name__ == "__main__":
                 ) as mysql_db:
             cursor = mysql_db.cursor()
             cursor.execute(
-                    f"""
-                    SELECT * FROM states WHERE name = '{search}'
-                    ORDER BY id ASC
                     """
+                    SELECT * FROM states WHERE name = '{}'
+                    ORDER BY id ASC
+                    """.format(search)
                     )
             result = cursor.fetchall()
             for i in result:
