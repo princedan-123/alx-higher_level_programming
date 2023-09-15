@@ -9,10 +9,10 @@ arg = sys.argv
 username = arg[1]
 passwd = arg[2]
 database = arg[3]
-if __name__ == '__main__':
+if __name__ == "__main__":
     if len(arg) == 4:
         engine = create_engine(
-                'mysql+mysqldb://{}:{}@localhost:3306/{}'.
+                "mysql+mysqldb://{}:{}@localhost:3306/{}".
                 format(username, passwd, database)
                 )
         Base.metadata.create_all(engine)
@@ -20,5 +20,5 @@ if __name__ == '__main__':
         session_object = Session()
         result = session_object.query(State).order_by(State.id).all()
         for record in result:
-            print('{}: {}'.format(record.id, record.name))
+            print("{}: {}".format(record.id, record.name))
         session_object.close
