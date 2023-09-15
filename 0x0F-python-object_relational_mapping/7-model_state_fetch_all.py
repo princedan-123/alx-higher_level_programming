@@ -17,6 +17,7 @@ if __name__ == '__main__':
                 'mysql+mysqldb://{}:{}@localhost:3306/{}'.
                 format(username, passwd, database)
                 )
+        Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session_object = Session()
         result = session_object.query(State).all()
