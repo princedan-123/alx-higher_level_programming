@@ -4,7 +4,7 @@
 """
 import sys
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, asc
 from model_state import Base, State
 
 arg = sys.argv
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session_object = Session()
-        result = session_object.query(State).all()
+        result = session_object.query(State).order_by(asc(State.id)).all()
         for record in result:
-            print(str(record.id) + ': ', record.name)
+            print('{}: {}'.format(record.id, record.name))
         session_object.close
