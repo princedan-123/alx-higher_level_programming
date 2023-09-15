@@ -12,7 +12,7 @@ database = arg[3]
 if __name__ == "__main__":
     if len(arg) == 4:
         engine = create_engine(
-                "mysql+mysqldb://{}:{}@localhost:3306/{}".
+                "mysql+mysqldb://{:s}:{:s}@localhost:3306/{}".
                 format(username, passwd, database)
                 )
         Base.metadata.create_all(engine)
