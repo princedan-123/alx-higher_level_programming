@@ -18,8 +18,7 @@ if __name__ == "__main__":
                 )
     Session = sessionmaker(bind=engine)
     with Session() as session_object:
-        result = session_object.query(State)
-        result = result.filter(State.name.like("%{}%".format(search)))
+        result = session_object.query(State).filter(State.name == search)
         result = result.first()
         if result is None:
             print("Not found")
