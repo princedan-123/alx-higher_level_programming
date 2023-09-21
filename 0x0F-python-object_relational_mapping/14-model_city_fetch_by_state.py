@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""a script that joins two tables"""
+""" a script that joins two tables, the tables are state and city tables """ 
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

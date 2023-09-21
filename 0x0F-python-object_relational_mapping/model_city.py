@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""a script that creates a city table"""
+""" a script that creates a city table """
 import sys
 from sqlalchemy import create_engine, Column, String, Integer, ForeignKey
 from model_state import Base, State
