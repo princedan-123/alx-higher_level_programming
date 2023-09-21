@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-""" a script that joins two tables, 
-    the tables are state and city tables 
-""" 
+"""
+a script that joins two tables,
+the tables are state and city tables
+
+"""
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -20,7 +22,8 @@ if __name__ == "__main__":
                 )
     Session = sessionmaker(bind=engine)
     with Session() as session_object:
-        result = session_object.query(State, City).filter(State.id == City.state_id)
+        result = session_object.query(State, City).\
+            filter(State.id == City.state_id)
         result = result.order_by(City.id).all()
         for state, city in result:
             print("{}: ({}) {}".format(state.name, city.id, city.name))
