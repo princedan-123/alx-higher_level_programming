@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" creates a state and city table with relationship """
+""" creates a state and city table with relationship 
+"""
 
 from relationship_city import City
 from relationship_state import State, Base

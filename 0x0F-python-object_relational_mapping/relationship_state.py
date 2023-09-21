@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""using sqlachemy library to work with database"""
+"""using sqlachemy library to work with database
+"""
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
