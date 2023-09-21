@@ -13,18 +13,17 @@ if len(arg) == 4:
             "mysql+mysqldb://{}:{}@localhost:3306/{}".
             format(username, passwd, database)
             )
-    class City (Base):
+    class City(Base):
         """
-            A class that should map to a table in MYSQL database
-            it contains the following attributes which corresponds
-            to columns of the table in the data base
-            id: integer column with a PRIMARY KEY constraint
-            name: string column with a NOT NULL constraint
-            state_id: integer column with a NOT NULL and FOREIGN KEY
-            constraint
+            A class that inherits from state class, it has the following
+            attributes
+            id: it has a not null and primary key constraint, it represents
+                the city id which is unique
+            name: represents the name of the city. It has not null constraint
+            state_id: this column is a foreign key to state.id of the states 
+                table
         """
-        __tablename__ = "Cities"
-        id = Column(Integer, autoincrement=True, primary_key=True, nullable=False)
+        __tablename__ = "cities"
+        id = Column(Integer, autoincrement=True, nullable=False, primary_key=True)
         name = Column(String(128), nullable=False)
-        state_id = Column(Integer, ForeignKey("states.id", name="fk_states.id"), nullable=False)
-    Base.metadata.create_all(engine)
+        state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
