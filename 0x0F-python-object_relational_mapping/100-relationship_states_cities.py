@@ -27,3 +27,4 @@ if __name__ == "__main__":
     session_object.add(california)
     session_object.add(san_francisco)
     session_object.commit()
+    session_object.close()
