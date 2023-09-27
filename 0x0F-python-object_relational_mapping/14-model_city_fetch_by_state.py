@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-"""
-a script that joins two tables,
-the tables are state and city tables
+"""A script that joins two tables."""
 
-"""
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from model_state import Base, State
 from model_city import City
+
 
 if __name__ == "__main__":
     arg = sys.argv
