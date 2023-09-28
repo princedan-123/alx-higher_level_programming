@@ -1,3 +1,3 @@
 #!/bin/bash
 # using curl to display the body of a http response
-curl  --location "$1"
+curl  -Ls "$1"
