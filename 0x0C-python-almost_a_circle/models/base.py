@@ -24,6 +24,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """serializes an object into a json string"""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         else:
@@ -32,6 +33,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """saves an object to a file"""
         classname = cls.__name__
         extension = ".json"
         filename = classname + extension
@@ -43,6 +45,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """deserializes a json string into an object"""
         if json_string is None or len(json_string) == 0:
             return []
         else:
@@ -51,6 +54,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """creates an object"""
         class_name = cls.__name__
         if class_name == "Rectangle":
             obj = cls(1, 2)
