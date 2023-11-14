@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /* creating a subclass Square that inherits from the super class Rectangle */
-const Rectangle = require('./4-rectangle.js');
+const Rectangle = require('./5-square.js');
 
 class Square extends Rectangle {
   constructor (size) {
