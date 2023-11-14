@@ -12,7 +12,7 @@ class Square extends Rectangle {
   }
 
   charPrint (c) {
-    if (c !== 'C') {
+    if (c === undefined) {
       super.print();
     } else {
       let string = '';
