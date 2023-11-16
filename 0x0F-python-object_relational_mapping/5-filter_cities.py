@@ -7,18 +7,18 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
     state = sys.argv[4]
-    connection = MySQLdb.connect(
+    with MySQLdb.connect(
             host="localhost", user=username, passwd=password, db=database
-            )
-    cursor = connection.cursor()
-    query = "SELECT cities.name FROM cities JOIN states\
+            ) as connection:
+        cursor = connection.cursor()
+        query = "SELECT cities.name FROM cities JOIN states\
             ON cities.state_id = states.id WHERE states.name = '{}'"\
             .format(state)
-    if ";" not in state:
-        cursor.execute(query)
-        result = cursor.fetchall()
-        cities = []
-        for row in result:
-            cities.append(row[0])
-        output = ", ".join(cities)
-        print(output)
+        if ";" not in state:
+            cursor.execute(query)
+            result = cursor.fetchall()
+            cities = []
+            for row in result:
+                cities.append(row[0])
+            output = ", ".join(cities)
+            print(output)
