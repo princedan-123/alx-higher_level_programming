@@ -6,11 +6,11 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    connection = MySQLdb.connect(
+    with MySQLdb.connect(
             host="localhost", user=username, passwd=password, db=database
-            )
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
-    result = cursor.fetchall()
-    for row in result:
-        print(row)
+            ) as connection:
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+        result = cursor.fetchall()
+        for row in result:
+            print(row)
