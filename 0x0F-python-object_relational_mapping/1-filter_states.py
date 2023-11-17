@@ -1,19 +1,24 @@
 #!/usr/bin/python3
-"""Prints only states that begin with upercase N from a database."""
-import MySQLdb
+""" A script that lists all states from the database hbtn_0e_0_usa:
+"""
 import sys
+from MySQLdb import connect
+
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    if len(sys.argv) == 4:
-        with MySQLdb.connect(
-                host="localhost", user=username, passwd=password, db=database
-                ) as connection:
-            cursor = connection.cursor()
+    arg = sys.argv
+    username = arg[1]
+    passwd = arg[2]
+    db = arg[3]          # database name
+    if len(arg) == 4:
+        with connect(
+                host="localhost", user=username,
+                password=passwd, database=db,
+                port=3306
+                ) as mysql_db:
+            cursor = mysql_db.cursor()
             cursor.execute(
-                    "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id"
+                    "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
                     )
             result = cursor.fetchall()
-            for row in result:
-                print(row)
+            for i in result:
+                print(i)
