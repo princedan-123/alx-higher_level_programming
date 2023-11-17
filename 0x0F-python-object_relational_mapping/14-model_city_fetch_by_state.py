@@ -1,24 +1,27 @@
 #!/usr/bin/python3
-"""A script that uses sqlalchemy ORM to list all cities in database."""
+"""A script that joins two tables."""
 
 import sys
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 from model_state import Base, State
 from model_city import City
 
+
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    port = 3306
-    engine = create_engine(
-        f"mysql://{username}:{password}@localhost:\
-            {port}/{database}"
-            )
-    Session_class = sessionmaker(bind=engine)
-    with Session_class() as session:
-        result = session.query(State, City).\
-                join(City, City.id == State.id).order_by(City.id).all()
+    arg = sys.argv
+    username = arg[1]
+    passwd = arg[2]
+    database = arg[3]
+    if len(arg) == 4:
+        engine = create_engine(
+                "mysql+mysqldb://{}:{}@localhost:3306/{}".
+                format(username, passwd, database)
+                )
+    Session = sessionmaker(bind=engine)
+    with Session() as session_object:
+        result = session_object.query(State, City).\
+            filter(State.id == City.state_id)
+        result = result.order_by(City.id).all()
         for state, city in result:
-            print(f"{state.name}: ({city.id}) {city.name}")
+            print("{}: ({}) {}".format(state.name, city.id, city.name))
