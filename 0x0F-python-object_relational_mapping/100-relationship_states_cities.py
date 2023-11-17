@@ -15,6 +15,7 @@ if __name__ == "__main__":
         f"mysql://{username}:{password}@localhost:\
             {port}/{database}"
             )
+    Base.metadata.create_all(engine)
     Session_class = sessionmaker(bind=engine)
     with Session_class() as session:
         New_state = State(
