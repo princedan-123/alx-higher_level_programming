@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that uses sqlalchemy ORM to list the first in database."""
+"""A script that uses sqlalchemy ORM to list the first state in database."""
 
 import sys
 from sqlalchemy import create_engine
