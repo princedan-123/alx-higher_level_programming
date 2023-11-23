@@ -11,8 +11,8 @@ if __name__ == "__main__":
             host="localhost", user=username, passwd=password, db=database
             ) as connection:
         cursor = connection.cursor()
-        query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"\
-                .format(search)
+        query = "SELECT * FROM states WHERE BINARY name = '{}' \
+                ORDER BY id ASC".format(search)
         cursor.execute(query)
         result = cursor.fetchall()
         for row in result:
