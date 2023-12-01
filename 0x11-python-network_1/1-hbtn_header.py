@@ -6,6 +6,9 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         url = sys.argv[1]
         with urlopen(url) as response:
-            headers =  response.headers
-            id_header = headers.get("X-Request-Id")
-            print(id_header)
+            try:
+                headers =  response.headers
+                id_header = headers.get("X-Request-Id")
+                print(id_header)
+            except Exception as error:
+                pass
