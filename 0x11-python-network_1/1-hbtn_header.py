@@ -7,7 +7,7 @@ if __name__ == "__main__":
         url = sys.argv[1]
         with urlopen(url) as response:
             try:
-                headers =  response.headers
+                headers = response.headers
                 id_header = headers.get("X-Request-Id")
                 print(id_header)
             except Exception as error:
