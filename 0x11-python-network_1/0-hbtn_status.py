@@ -5,6 +5,6 @@ from urllib.request import urlopen
 
 with urlopen("https://alx-intranet.hbtn.io/status") as response:
     response = response.read()
-    print("type: {}".format(type(response)))
-    print("content: {}".format(response))
-    print("utf8 content: {}".format(response.decode("utf-8")))
+    print("\ttype: {}".format(type(response)))
+    print("\tcontent: {}".format(response))
+    print("\tutf8 content: {}".format(response.decode("utf-8")))
