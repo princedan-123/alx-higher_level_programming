@@ -9,7 +9,7 @@ API  </p>
  <p>Here are the resources for the tasks: Read or watch the following </p>
 <li><a href="https://docs.python.org/3/howto/urllib2.html">HOWTO Fetch Internet Resources Using urllib Package</a></li>
 <li><a href=""https://requests.readthedocs.io/en/latest/>Quickstart with Requests package</a></li>
-<li><a href="https://pypi.org/project/requests/"></a>Requests package</li>
+<li><a href="https://pypi.org/project/requests/">Request package</a></li>
 </ul>
 <p><em><h4>Learning Objectives</h4></em></p>
 <p>At the end of this project, you are expected to be able to explain to anyone, without the help of Google:</p>
