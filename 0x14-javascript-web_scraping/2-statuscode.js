@@ -4,7 +4,7 @@
 const request = require('request');
 
 const callBack = (error, response, body) => {
-  console.log(response.statusCode);
+  console.log('code:', response.statusCode);
   if (error) {
     console.log('');
   }
