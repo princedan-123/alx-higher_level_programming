@@ -16,17 +16,19 @@ const callback = (error, response, body) => {
         }
       }
     }
-    for (const userid of id) {
-      let count = 0;
-      for (const obj of result) {
-        if (obj.userId === userid && obj.completed === true) {
-          count += 1;
+    if (id.length !== 0) {
+      for (const userid of id) {
+        let count = 0;
+        for (const obj of result) {
+          if (obj.userId === userid && obj.completed === true) {
+            count += 1;
+          }
         }
+        String(userid);
+        task[userid] = count;
       }
-      String(userid);
-      task[userid] = count;
+      console.log(task);
     }
-    console.log(task);
   }
 };
 
