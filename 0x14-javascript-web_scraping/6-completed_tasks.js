@@ -4,19 +4,27 @@
 const request = require('request');
 
 const task = {};
-let i = 1;
+const id = [];
+
 const callback = (error, response, body) => {
   if (error === null) {
     const result = JSON.parse(body);
-    for (; i <= 10; i++) {
+    for (const obj of result) {
+      if (obj.userId !== null) {
+        if (!id.includes(obj.userId)) {
+          id.push(obj.userId);
+        }
+      }
+    }
+    for (const userid of id) {
       let count = 0;
-      for (const element of result) {
-        if (element.userId === i && element.completed === true) {
+      for (const obj of result) {
+        if (obj.userId === userid && obj.completed === true) {
           count += 1;
         }
       }
-      String(i);
-      task[i] = count;
+      String(userid);
+      task[userid] = count;
     }
     console.log(task);
   }
